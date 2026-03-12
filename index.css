@@ -310,7 +310,6 @@ body.dark-mode {
 
     .app_main {
         width: 100%;
-        max-width: 1200px;
         border: solid 3px grey;
         border-top: none;
     }

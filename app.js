@@ -257,9 +257,9 @@ function fullScreenActions () {
             appWrapper.style.width = '80vw'
             appWrapper.style.maxWidth = '1200px'
         } else {
+            appWrapper.style.maxWidth = 'none'
             appWrapper.style.height = '100vh'
             appWrapper.style.width = '100vw'
-            appWrapper.style.maxWidth = 'none'
         }
     })
 
