@@ -1,0 +1,388 @@
+html , * {
+  font-family: "VT323", monospace;
+  font-weight: 400;
+  font-style: normal;
+  box-sizing: border-box;
+  margin: 0;
+}
+body {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: var(--bg-color);
+}
+
+img {
+    user-select: none;
+}
+
+.app_wrapper {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: none;
+    flex-direction: column;
+}
+
+.app_main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.start_game {
+    background-color: grey;
+    width: 80vw;
+    max-width: 400px;
+    height: 100px;
+    font-size: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.start_game:hover {
+    background-color: rgb(104, 104, 104);
+}
+
+.app-actions {
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+body.light-mode {
+    --bg-color: #e6f0f7;
+}
+body.dark-mode {
+    --bg-color: rgb(73, 73, 73);
+}
+
+.tabs {
+    display: flex;
+    align-content: center;
+    height: 10vh;
+    border-bottom: 3px solid grey;
+}
+
+.thumbnail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 3px solid grey;
+    padding: 5px 10px;
+    cursor: pointer;
+    height: 100%;
+}
+.thumbnail > img {
+    height: 80%;
+}
+.thumbnail.active {
+    background-color: rgb(199, 199, 199);
+}
+
+.light-switch {
+    border-left: 3px solid grey;
+    border-right: none;
+    margin-left: auto;
+}
+
+.drawer {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 12px;
+    padding-left: 12px;
+    position: absolute;
+    z-index: 5;
+    left: 0;
+    top: 10vh;
+    background-color: rgb(199, 199, 199);
+    border-bottom: 3px solid grey;
+}
+
+.item-wrapper {
+    height: 80%;
+    aspect-ratio: 1/1;
+    background-color: rgb(119, 119, 119);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+.item-wrapper > img {
+    height: 90%;
+}
+
+.locked {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url('./assets/interface/locked.png') no-repeat center / contain;
+    opacity: .8;
+}
+
+.price {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+}
+.price > img {
+    height: 2.2vh;
+}
+.price > p {
+    font-size: 3.25vh;
+    color: white;
+}
+
+.item-wrapper.active {
+    border: solid 3px rgb(169, 249, 252);
+}
+
+.scene_wrapper {
+    display: flex;
+}
+
+.scene {
+    width: 80%;
+    aspect-ratio: 1/1;
+    background-color: grey;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.scene > img {
+    width: 90%;
+    height: 90%;
+    position: absolute;
+}
+
+.clicker_wrapper {
+    height: 10vh;
+    width: 100%;
+    border-top: solid 3px grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    gap: 20px;
+}
+
+.coins {
+    height: 80%;
+    background-color: grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 0 8px 0 5px;
+    position: relative;
+}
+.coins > img {
+    height: 80%;
+    aspect-ratio: 1/1;
+}
+.coins-counter {
+    font-size: 8.5vh;
+    color: white;
+}
+
+.coins-detail {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    width: auto;
+    font-size: 2.8vh;
+    background-color: var(--bg-color);
+    border: solid 3px grey;
+    padding: 3px 8px;
+}
+
+.clicker {
+    height: 80%;
+    width: 60%;
+    background-color: grey;
+    color: white;
+    font-size: 7.2vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+}
+.clicker:active {
+    background-color: rgb(97, 97, 97);
+}
+
+.cross {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    --color: rgb(73, 73, 73);
+}
+.cross::before {
+    content: '';
+    display: block;
+    width: 80%;
+    height: 3px;
+    background-color: var(--color);
+    transform: rotate(45deg);
+}
+.cross::after {
+    content: '';
+    display: block;
+    width: 80%;
+    height: 3px;
+    background-color: var(--color);
+    transform: rotate(-45deg);
+    position: absolute;
+}
+
+.alert {
+    display: flex;
+    justify-content: start;
+    gap: 10px;
+    align-items: center;
+    padding: 10px;
+    width: 80vw;
+    max-width: 500px;
+    max-height: 200px;
+    height: auto;
+    border: solid 2px red;
+    background-color: rgba(255, 0, 0, 0.3);
+    border-radius: 10px;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 27px;
+    animation: slideDown .3s;
+    z-index: 10;
+    overflow: hidden;
+    word-break: break-all;
+}
+.alert > .cross {
+    height: 35px;
+    aspect-ratio: 1/1;
+    position: relative;
+    cursor: pointer;
+    --color: rgb(255, 255, 255, .9);
+}
+
+
+@media screen and (min-width: 760px) {
+    .app_wrapper {
+        height: 90vh;
+        width: 80vw;
+        max-width: 1200px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .app_main {
+        width: 100%;
+        max-width: 1200px;
+        border: solid 3px grey;
+        border-top: none;
+    }
+
+    .start_game {
+        font-size: 80px;
+    }
+
+    .app-actions {
+        height: 5vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 3px;
+        padding-right: 5px;
+        border: 3px solid grey;
+    }
+
+    .action {
+        height: 70%;
+        aspect-ratio: 1/1;
+        background-color: grey;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .drawer {
+        width: calc(100% - 6px);
+        left: 50%;
+        top: calc(15vh - 3px);
+        transform: translateX(-50%);
+    }
+
+    .reduce::after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 5px;
+        left: 15%;
+        width: 70%;
+        height: 3px;
+        background-color: rgb(73, 73, 73);
+    }
+
+    .fullscreen {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .fullscreen::after {
+        content: '';
+        display: block;
+        width: 52%;
+        height: 50%;
+        border: 3px solid rgb(73, 73, 73);
+        border-top: 5px solid rgb(73, 73, 73);
+    }
+
+    .scene {
+        height: 60%;
+        width: auto;
+        aspect-ratio: 1/1;
+        transform: translate(-50%, calc(-50% + 2.5vh));
+    }
+}
+
+
+
+
+
+@keyframes slideDown {
+    0% {transform: translate(-50%, -100px);}
+    100% {transform: translate(-50%, 0);}
+}

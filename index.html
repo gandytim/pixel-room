@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelROOM</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+    </style>
+    <link rel="stylesheet" href="index.css">
+    <script defer type="module" src="./app.js"></script>
+</head>
+<body>
+    <div class="start_game">Start game</div>
+    <div class="app_wrapper">
+        <nav class="app-actions">
+            <div class="reduce action"></div>
+            <div class="fullscreen action"></div>
+            <div class="cross action"></div>
+        </nav>
+        <div class="app_main">
+            <div class="tabs">
+                <div id="walls" class="tab">
+                    <div class="thumbnail">
+                        <img src="./assets/interface/walls.png" alt="">
+                    </div>
+                </div>
+                <div id="floors" class="tab">
+                    <div class="thumbnail">
+                        <img src="./assets/interface/floor.png" alt="">
+                    </div>
+                </div>
+                <div id="decorations" class="tab">
+                    <div class="thumbnail">
+                        <img src="./assets/interface/decorations.png" alt="">
+                    </div>
+                    
+                </div>
+                <div class="thumbnail light-switch"></div>
+            </div>
+            <main class="scene_wrapper">
+                <div class="scene">
+                    <img id="current_walls" src="./assets/walls/walls_white.png" alt="">
+                    <img id="current_floors" src="./assets/floors/floor_wood_brown.png" alt="">
+                </div>
+            </main>
+            <div class="clicker_wrapper">
+                <div class="coins">
+                    <img src="./assets/interface/coins.png" alt="">
+                    <p class="coins-counter"></p>
+                </div>
+                <div class="clicker">Click !</div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>
